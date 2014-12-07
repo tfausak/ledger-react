@@ -8,6 +8,7 @@
   },
   "main": "server.js",
   "name": "ledger-react",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/tfausak/ledger-react"
