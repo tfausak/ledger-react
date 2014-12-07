@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^4.10.0"
+  },
+  "description": "Watch your money fly away.",
+  "engines": {
+    "node": "^0.10.0"
+  },
+  "main": "server.js",
+  "name": "ledger-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tfausak/ledger-react"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "version": "0.0.0"
+}
