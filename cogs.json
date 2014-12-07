@@ -1,0 +1,6 @@
+{
+  "targets": {
+    "src/scripts/index.jsx": "static",
+    "src/styles/index.less": "static"
+  }
+}
