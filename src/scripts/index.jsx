@@ -1,5 +1,4 @@
 //= require bower_components/react/react.js
-// var React = require('react');
 
 var Ledger = React.createClass({
   render: function () {
