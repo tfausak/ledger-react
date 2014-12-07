@@ -1,8 +1,8 @@
 var ShowEntry = React.createClass({
   propTypes: {
     amount: React.PropTypes.number.isRequired,
-    created: React.PropTypes.instanceOf(Date).isRequired,
-    name: React.PropTypes.string.isRequired,
+    time: React.PropTypes.instanceOf(Date).isRequired,
+    description: React.PropTypes.string.isRequired,
     onClick: React.PropTypes.func.isRequired,
   },
 
@@ -16,11 +16,11 @@ var ShowEntry = React.createClass({
             </div>
           </div>
 
-          {this.props.name}
+          {this.props.description}
         </div>
 
         <div>
-          {this.props.created.toLocaleString()}
+          {this.props.time.toLocaleString()}
         </div>
       </div>
     );

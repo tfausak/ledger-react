@@ -17,12 +17,12 @@ var Entries = React.createClass({
   renderEntries: function() {
     return this.props.entries.map(function(entry) {
       return (
-        <div className="list-group-item" key={entry.number}>
+        <div className="list-group-item" key={entry.id}>
           <Entry
             amount={entry.amount}
-            created={entry.created}
-            name={entry.name}
-            number={entry.number}
+            time={entry.time}
+            description={entry.description}
+            id={entry.id}
             onUpdate={this.props.onUpdate}
             onDelete={this.props.onDelete}
             />

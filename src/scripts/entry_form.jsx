@@ -1,8 +1,8 @@
 var EntryForm = React.createClass({
   propTypes: {
     amount: React.PropTypes.number,
-    name: React.PropTypes.string,
-    number: React.PropTypes.number,
+    description: React.PropTypes.string,
+    id: React.PropTypes.number,
     onCreate: React.PropTypes.func,
     onUpdate: React.PropTypes.func,
     onCancel: React.PropTypes.func,
@@ -68,16 +68,16 @@ var EntryForm = React.createClass({
         </div>
 
         <div className="form-group">
-          <label htmlFor="name">
+          <label htmlFor="description">
             Name
           </label>
 
           <input
             className="form-control"
-            defaultValue={this.props.name}
-            id="name"
+            defaultValue={this.props.description}
+            id="description"
             placeholder="Lunch at Freebirds"
-            ref="name"
+            ref="description"
             type="text"
             />
         </div>
@@ -128,15 +128,15 @@ var EntryForm = React.createClass({
     var typeDebitNode = this.refs['type-debit'].getDOMNode();
     var amountNode = this.refs.amount.getDOMNode();
     var amount = amountNode.valueAsNumber;
-    var nameNode = this.refs.name.getDOMNode();
-    var name = nameNode.value;
+    var nameNode = this.refs.description.getDOMNode();
+    var description = nameNode.value;
 
     if (isNaN(amount) || !isFinite(amount)) {
       amountNode.focus();
       return;
     }
 
-    if (!name) {
+    if (!description) {
       nameNode.focus();
       return;
     }
@@ -145,13 +145,14 @@ var EntryForm = React.createClass({
       amount *= -1;
     }
 
-    var entry = {amount: amount, name: name};
+    var entry = {amount: amount, description: description, time: new Date};
 
     if (this.isEditing()) {
       entry = {
         amount: entry.amount,
-        name: entry.name,
-        number: this.props.number
+        description: entry.description,
+        id: this.props.id,
+        time: entry.time
       };
       this.props.onUpdate(entry);
     }

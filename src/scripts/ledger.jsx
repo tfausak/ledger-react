@@ -39,9 +39,9 @@ var Ledger = React.createClass({
   transform: function(object) {
     return {
       amount: object.amount,
-      created: new Date(object.created),
-      name: object.name,
-      number: object.number
+      time: new Date(object.time),
+      description: object.description,
+      id: object.id
     };
   },
   createEntry: function(entry) {
@@ -52,11 +52,11 @@ var Ledger = React.createClass({
     }.bind(this));
   },
   updateEntry: function(entry) {
-    var url = this.state.url + '/entries/' + entry.number + '?key=' + this.state.key;
+    var url = this.state.url + '/entries/' + entry.id + '?key=' + this.state.key;
     superagent.put(url, entry, function(response) {
       var updatedEntry = this.transform(response.body);
       this.setState({entries: this.state.entries.map(function(e) {
-        if (e.number === updatedEntry.number) {
+        if (e.id === updatedEntry.id) {
           return updatedEntry;
         }
         else {
@@ -66,10 +66,10 @@ var Ledger = React.createClass({
     }.bind(this));
   },
   deleteEntry: function(entry) {
-    var url = this.state.url + '/entries/' + entry.number + '?key=' + this.state.key;
+    var url = this.state.url + '/entries/' + entry.id + '?key=' + this.state.key;
     superagent.del(url, function(response) {
       this.setState({entries: this.state.entries.filter(function(e) {
-        return e.number !== entry.number;
+        return e.id !== entry.id;
       })});
     }.bind(this));
   }

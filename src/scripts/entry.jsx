@@ -4,9 +4,9 @@
 var Entry = React.createClass({
   propTypes: {
     amount: React.PropTypes.number.isRequired,
-    created: React.PropTypes.instanceOf(Date).isRequired,
-    name: React.PropTypes.string.isRequired,
-    number: React.PropTypes.number.isRequired,
+    time: React.PropTypes.instanceOf(Date).isRequired,
+    description: React.PropTypes.string.isRequired,
+    id: React.PropTypes.number.isRequired,
     onUpdate: React.PropTypes.func.isRequired,
     onDelete: React.PropTypes.func.isRequired
   },
@@ -23,8 +23,8 @@ var Entry = React.createClass({
     return (
       <EditEntryForm
         amount={this.props.amount}
-        name={this.props.name}
-        number={this.props.number}
+        description={this.props.description}
+        id={this.props.id}
         onUpdate={this.onUpdate}
         onCancel={this.onCancel}
         onDelete={this.onDelete}
@@ -35,8 +35,8 @@ var Entry = React.createClass({
     return (
       <ShowEntry
         amount={this.props.amount}
-        created={this.props.created}
-        name={this.props.name}
+        time={this.props.time}
+        description={this.props.description}
         onClick={this.onClick}
         />
     );

@@ -60,7 +60,7 @@ var Content = React.createClass({
   filteredEntries: function() {
     return this.props.entries.filter(function(entry) {
       if (this.state.query) {
-        var haystack = entry.name.toLowerCase();
+        var haystack = entry.description.toLowerCase();
         var needle = this.state.query.toLowerCase();
         if (haystack.indexOf(needle) === -1) {
           return false;
@@ -68,13 +68,13 @@ var Content = React.createClass({
       }
 
       if (this.state.after) {
-        if (entry.created < this.state.after) {
+        if (entry.time < this.state.after) {
           return false;
         }
       }
 
       if (this.state.before) {
-        if (entry.created > this.state.before) {
+        if (entry.time > this.state.before) {
           return false;
         }
       }
@@ -96,7 +96,7 @@ var Content = React.createClass({
   },
   sortedEntries: function() {
     return this.filteredEntries().sort(function(a, b) {
-      return b.created - a.created;
+      return b.time - a.time;
     });
   }
 });
