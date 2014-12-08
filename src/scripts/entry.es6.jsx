@@ -1,7 +1,8 @@
-//= require ./edit_entry_form.jsx
-//= require ./show_entry.jsx
+import EditEntryForm from 'edit_entry_form';
+import React from 'react';
+import ShowEntry from 'show_entry';
 
-var Entry = React.createClass({
+export default React.createClass({
   propTypes: {
     amount: React.PropTypes.number.isRequired,
     time: React.PropTypes.instanceOf(Date).isRequired,

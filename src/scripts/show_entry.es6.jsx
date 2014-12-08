@@ -1,4 +1,6 @@
-var ShowEntry = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   propTypes: {
     amount: React.PropTypes.number.isRequired,
     time: React.PropTypes.instanceOf(Date).isRequired,

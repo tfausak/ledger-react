@@ -1,6 +1,7 @@
-//= require ./entry.jsx
+import Entry from 'entry';
+import React from 'react';
 
-var Entries = React.createClass({
+export default React.createClass({
   propTypes: {
     entries: React.PropTypes.array.isRequired,
     onUpdate: React.PropTypes.func.isRequired,

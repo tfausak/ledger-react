@@ -1,4 +1,6 @@
-var Header = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   render: function() {
     return (
       <div className="navbar navbar-default navbar-static-top">

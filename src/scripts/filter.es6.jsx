@@ -1,4 +1,6 @@
-var Filter = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   propTypes: {
     onFilter: React.PropTypes.func.isRequired
   },

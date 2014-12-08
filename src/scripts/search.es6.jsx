@@ -1,4 +1,6 @@
-var Search = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   propTypes: {
     onSearch :React.PropTypes.func.isRequired
   },

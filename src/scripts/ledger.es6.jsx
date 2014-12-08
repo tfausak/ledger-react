@@ -1,9 +1,10 @@
-//= require bower_components/superagent/superagent.js
-//= require ./header.jsx
-//= require ./content.jsx
-//= require ./footer.jsx
+import Content from 'content';
+import Footer from 'footer';
+import Header from 'header';
+import React from 'react';
+import superagent from 'superagent';
 
-var Ledger = React.createClass({
+export default React.createClass({
   render: function() {
     return (
       <div>

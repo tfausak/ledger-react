@@ -1,4 +1,6 @@
-var Balance = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   propTypes: {
     entries: React.PropTypes.array.isRequired
   },

@@ -1,4 +1,6 @@
-var EntryForm = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   propTypes: {
     amount: React.PropTypes.number,
     description: React.PropTypes.string,

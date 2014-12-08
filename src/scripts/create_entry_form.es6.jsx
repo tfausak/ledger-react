@@ -1,6 +1,7 @@
-//= require ./entry_form.jsx
+import EntryForm from 'entry_form';
+import React from 'react';
 
-var CreateEntryForm = React.createClass({
+export default React.createClass({
   propTypes: {
     onCreate: React.PropTypes.func.isRequired
   },
