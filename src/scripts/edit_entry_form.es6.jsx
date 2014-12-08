@@ -1,6 +1,7 @@
-//= require ./entry_form.jsx
+import EntryForm from 'entry_form';
+import React from 'react';
 
-var EditEntryForm = React.createClass({
+export default React.createClass({
   propTypes: {
     amount: React.PropTypes.number.isRequired,
     description: React.PropTypes.string.isRequired,

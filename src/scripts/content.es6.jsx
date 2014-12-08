@@ -1,10 +1,11 @@
-//= require ./balance.jsx
-//= require ./create_entry_form.jsx
-//= require ./search.jsx
-//= require ./filter.jsx
-//= require ./entries.jsx
+import Balance from 'balance';
+import CreateEntryForm from 'create_entry_form';
+import Entries from 'entries';
+import Filter from 'filter';
+import React from 'react';
+import Search from 'search';
 
-var Content = React.createClass({
+export default React.createClass({
   propTypes: {
     entries: React.PropTypes.array.isRequired,
     onCreateEntry: React.PropTypes.func.isRequired,
