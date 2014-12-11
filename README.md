@@ -2,7 +2,7 @@
 
 Watch your money fly away.
 
-This is a front end for [Ledger][2].
+This is a front end for [ledger-api][2].
 
 - [Installation](#installation)
 

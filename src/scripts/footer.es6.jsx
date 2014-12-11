@@ -6,7 +6,7 @@ export default React.createClass({
       <div className="container">
         <p className="text-center">
           <a href="https://github.com/tfausak/ledger-api">
-            Ledger
+            ledger-api
           </a>
           {' '}
           v0.2.0
