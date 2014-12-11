@@ -2,6 +2,11 @@
 
 This package uses [Semantic Versioning][1].
 
+## v0.2.0 (2014-12-11)
+
+- Added the avility to customize the API URL through the `LEDGER_API_URL`
+  environment variable.
+
 ## v0.1.1 (2014-12-11)
 
 - Fixed API URL.
