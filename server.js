@@ -1,5 +1,19 @@
 var express = require('express');
+var fs = require('fs');
 var server = express();
+var url = process.env.LEDGER_API_URL || 'http://localhost:3000';
+
+server.get('/', function (request, response) {
+  fs.readFile('static/index.html', { encoding: 'utf-8' }, function (error, data) {
+    if (error) {
+      console.error(error);
+      response.status(500).send();
+    } else {
+      data = data.replace('LEDGER_API_URL_PLACEHOLDER', url);
+      response.send(data);
+    }
+  });
+});
 
 server.use(express.static('static'));
 

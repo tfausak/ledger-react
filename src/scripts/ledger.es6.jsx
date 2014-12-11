@@ -23,7 +23,7 @@ export default React.createClass({
     return {
       entries: [],
       key: window.location.hash.substring(1),
-      url: 'https://ledgerapi-fausak.rhcloud.com'
+      url: window.LEDGER_API_URL
     };
   },
   componentWillMount: function() {
