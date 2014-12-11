@@ -23,7 +23,7 @@ export default React.createClass({
     return {
       entries: [],
       key: window.location.hash.substring(1),
-      url: 'http://localhost:3000'
+      url: 'https://ledgerapi-fausak.rhcloud.com'
     };
   },
   componentWillMount: function() {
