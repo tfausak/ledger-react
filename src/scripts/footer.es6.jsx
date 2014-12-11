@@ -5,11 +5,11 @@ export default React.createClass({
     return (
       <div className="container">
         <p className="text-center">
-          <a href="https://github.com/tfausak/ledger">
+          <a href="https://github.com/tfausak/ledger-api">
             Ledger
           </a>
           {' '}
-          v0.1.5
+          v0.2.0
         </p>
       </div>
     );
