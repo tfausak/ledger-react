@@ -15,7 +15,7 @@ export default React.createClass({
           onUpdateEntry={this.updateEntry}
           onDeleteEntry={this.deleteEntry}
           />
-        <Footer />
+        <Footer version={this.state.version} />
       </div>
     );
   },
@@ -23,7 +23,8 @@ export default React.createClass({
     return {
       entries: [],
       key: window.location.hash.substring(1),
-      url: window.LEDGER_API_URL
+      url: window.LEDGER_API_URL,
+      version: window.LEDGER_REACT_VERSION
     };
   },
   componentWillMount: function() {
