@@ -58,7 +58,7 @@ export default React.createClass({
 
             <input
               className="form-control"
-              defaultValue={this.props.amount === undefined ? null : Math.abs(this.props.amount).toFixed(2)}
+              defaultValue={this.getDefaultAmount()}
               id="amount"
               min="0"
               placeholder="7.31"
@@ -164,8 +164,9 @@ export default React.createClass({
       typeCreditNode.checked = true;
       typeDebitNode.checked = false;
 
-      var nodes = document.querySelectorAll('#entry-form input, #entry-form button');
-      for (var i = 0; i < nodes.length; i++) {
+      var nodes = document
+        .querySelectorAll('#entry-form input, #entry-form button');
+      for (var i = 0; i < nodes.length; i += 1) {
         nodes.item(i).blur();
       }
 
@@ -186,5 +187,13 @@ export default React.createClass({
 
   isEditing: function() {
     return this.props.onUpdate;
+  },
+
+  getDefaultAmount: function() {
+    if (this.props.amount === undefined) {
+      return null;
+    } else {
+      return Math.abs(this.props.amount).toFixed(2);
+    }
   }
 });

@@ -13,7 +13,7 @@ export default React.createClass({
       <div className="entry" onClick={this.props.onClick}>
         <div className="lead">
           <div className="pull-right">
-            <div className={['label', 'label-' + this.getClassName()].join(' ')}>
+            <div className={this.getClassNames()}>
               ${this.props.amount.toFixed(2)}
             </div>
           </div>
@@ -28,6 +28,9 @@ export default React.createClass({
     );
   },
 
+  getClassNames: function() {
+    return ['label', 'label-' + this.getClassName()].join(' ');
+  },
   getClassName: function() {
     if (this.isCredit()) {
       return 'danger';

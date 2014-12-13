@@ -69,7 +69,7 @@ export default React.createClass({
   },
   deleteEntry: function(entry) {
     var url = this.buildUrl('entries/' + entry.id);
-    superagent.del(url, function(response) {
+    superagent.del(url, function() {
       this.setState({entries: this.state.entries.filter(function(e) {
         return e.id !== entry.id;
       })});
