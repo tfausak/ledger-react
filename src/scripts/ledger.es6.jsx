@@ -32,7 +32,7 @@ export default React.createClass({
   },
 
   getEntries: function() {
-    var url = this.state.url + '/entries?key=' + this.state.key;
+    var url = this.buildUrl('entries');
     superagent.get(url, function(response) {
       var entries = response.body.map(this.transform);
       this.setState({entries: entries});
@@ -47,14 +47,14 @@ export default React.createClass({
     };
   },
   createEntry: function(entry) {
-    var url = this.state.url + '/entries?key=' + this.state.key;
+    var url = this.buildUrl('entries');
     superagent.post(url, entry, function(response) {
       var newEntry = this.transform(response.body);
       this.setState({entries: [newEntry].concat(this.state.entries)});
     }.bind(this));
   },
   updateEntry: function(entry) {
-    var url = this.state.url + '/entries/' + entry.id + '?key=' + this.state.key;
+    var url = this.buildUrl('entries/' + entry.id);
     superagent.put(url, entry, function(response) {
       var updatedEntry = this.transform(response.body);
       this.setState({entries: this.state.entries.map(function(e) {
@@ -68,11 +68,15 @@ export default React.createClass({
     }.bind(this));
   },
   deleteEntry: function(entry) {
-    var url = this.state.url + '/entries/' + entry.id + '?key=' + this.state.key;
+    var url = this.buildUrl('entries/' + entry.id);
     superagent.del(url, function(response) {
       this.setState({entries: this.state.entries.filter(function(e) {
         return e.id !== entry.id;
       })});
     }.bind(this));
+  },
+
+  buildUrl: function(path) {
+    return this.state.url + '/' + path + '?key=' + this.state.key;
   }
 });
