@@ -22,7 +22,8 @@ export default React.createClass({
   getInitialState: function() {
     return {
       entries: [],
-      key: window.localStorage.getItem('key'),
+      key: window.location.hash.substring(1) ||
+        window.localStorage.getItem('key'),
       url: window.LEDGER_API_URL,
       version: window.LEDGER_REACT_VERSION
     };
@@ -49,6 +50,7 @@ export default React.createClass({
       var key = response.body.id;
       this.setState({key: key});
       window.localStorage.setItem('key', key);
+      window.location.hash = key;
       window.alert('New key: ' + this.state.key);
       this.getEntries();
     }.bind(this));
