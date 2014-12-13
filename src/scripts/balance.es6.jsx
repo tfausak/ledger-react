@@ -21,7 +21,7 @@ export default React.createClass({
     return this.props.entries.map(function(entry) {
       return entry.amount;
     }).reduce(function(a, b) {
-      return a + b
+      return a + b;
     }, 0);
   },
   getClassName: function() {

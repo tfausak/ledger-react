@@ -58,7 +58,7 @@ export default React.createClass({
 
             <input
               className="form-control"
-              defaultValue={this.props.amount == undefined ? null : Math.abs(this.props.amount).toFixed(2)}
+              defaultValue={this.props.amount === undefined ? null : Math.abs(this.props.amount).toFixed(2)}
               id="amount"
               min="0"
               placeholder="7.31"
@@ -147,7 +147,7 @@ export default React.createClass({
       amount *= -1;
     }
 
-    var entry = {amount: amount, description: description, time: new Date};
+    var entry = {amount: amount, description: description, time: new Date()};
 
     if (this.isEditing()) {
       entry = {
