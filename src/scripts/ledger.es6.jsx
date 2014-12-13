@@ -22,15 +22,37 @@ export default React.createClass({
   getInitialState: function() {
     return {
       entries: [],
-      key: window.location.hash.substring(1),
+      key: window.localStorage.getItem('key'),
       url: window.LEDGER_API_URL,
       version: window.LEDGER_REACT_VERSION
     };
   },
   componentWillMount: function() {
-    this.getEntries();
+    if (this.state.key) {
+      var url = this.buildUrl('keys/' + this.state.key);
+      superagent.get(url, function(response) {
+        if (response.status !== 200) {
+          window.alert('Invalid key: ' + this.state.key);
+          this.getKey();
+        } else {
+          this.getEntries();
+        }
+      }.bind(this));
+    } else {
+      this.getKey();
+    }
   },
 
+  getKey: function() {
+    var url = this.buildUrl('keys');
+    superagent.post(url, function(response) {
+      var key = response.body.id;
+      this.setState({key: key});
+      window.localStorage.setItem('key', key);
+      window.alert('New key: ' + this.state.key);
+      this.getEntries();
+    }.bind(this));
+  },
   getEntries: function() {
     var url = this.buildUrl('entries');
     superagent.get(url, function(response) {
