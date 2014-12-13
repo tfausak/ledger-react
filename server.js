@@ -29,5 +29,5 @@ server.get('/', function (request, response) {
 server.use(express.static('static'));
 
 server.listen(port, host, function () {
-  console.info('http://' + host + ':' + port);
+  console.info('💸 ' + host + ':' + port);
 });
