@@ -2,6 +2,10 @@
 
 This package uses [Semantic Versioning][1].
 
+## v0.2.2 (2014-12-13)
+
+- Removed Unicode from startup message.
+
 ## v0.2.1 (2014-12-13)
 
 - Added a feature that automatically gets and saves keys when necessary.

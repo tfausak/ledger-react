@@ -22,7 +22,7 @@ export default React.createClass({
               ledger-api
             </a>
             {' '}
-            0.2.2
+            0.2.3
           </li>
         </ul>
       </div>
