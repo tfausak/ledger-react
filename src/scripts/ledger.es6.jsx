@@ -33,7 +33,7 @@ export default React.createClass({
       var url = this.buildUrl('keys/' + this.state.key);
       superagent.get(url, function(response) {
         if (response.status !== 200) {
-          window.alert('Invalid key: ' + this.state.key);
+          console.debug('Invalid key: ' + this.state.key);
           this.getKey();
         } else {
           this.getEntries();
@@ -51,7 +51,7 @@ export default React.createClass({
       this.setState({key: key});
       window.localStorage.setItem('key', key);
       window.location.hash = key;
-      window.alert('New key: ' + this.state.key);
+      console.debug('New key: ' + this.state.key);
       this.getEntries();
     }.bind(this));
   },
