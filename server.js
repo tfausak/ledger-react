@@ -1,5 +1,6 @@
 var express = require('express');
 var fs = require('fs');
+var morgan = require('morgan');
 var package = require('./package.json');
 
 var host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
@@ -8,6 +9,7 @@ var url = process.env.LEDGER_API_URL || 'http://localhost:3000';
 var version = package.version;
 
 var server = express();
+server.use(morgan('combined'));
 
 server.get('/', function (request, response) {
   fs.readFile(
