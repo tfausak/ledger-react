@@ -1,8 +1,15 @@
+.PHONY: all cogs server watch
+
 BIN=node_modules/.bin/
 COGS=$(BIN)cogs
 
-dev:
-	$(COGS) -w src
+all: watch server
 
-compress:
-	$(COGS) -c
+cogs:
+	$(COGS) --compress
+
+server:
+	npm run start
+
+watch:
+	$(COGS) --compress --watch src
