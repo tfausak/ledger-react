@@ -1,6 +1,6 @@
-import EditEntryForm from 'edit_entry_form';
+import EditEntryForm from 'components/edit_entry_form';
 import React from 'react';
-import ShowEntry from 'show_entry';
+import ShowEntry from 'components/show_entry';
 
 export default React.createClass({
   propTypes: {
@@ -29,6 +29,7 @@ export default React.createClass({
         onUpdate={this.onUpdate}
         onCancel={this.onCancel}
         onDelete={this.onDelete}
+        time={this.props.time}
         />
     );
   },

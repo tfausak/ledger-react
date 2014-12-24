@@ -1,9 +1,9 @@
-import Balance from 'balance';
-import CreateEntryForm from 'create_entry_form';
-import Entries from 'entries';
-import Filter from 'filter';
+import Balance from 'components/balance';
+import CreateEntryForm from 'components/create_entry_form';
+import Entries from 'components/entries';
+import Filter from 'components/filter';
 import React from 'react';
-import Search from 'search';
+import Search from 'components/search';
 
 export default React.createClass({
   propTypes: {

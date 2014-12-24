@@ -1,4 +1,4 @@
-import Entry from 'entry';
+import Entry from 'components/entry';
 import React from 'react';
 
 export default React.createClass({

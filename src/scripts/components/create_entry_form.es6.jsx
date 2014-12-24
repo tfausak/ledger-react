@@ -1,4 +1,4 @@
-import EntryForm from 'entry_form';
+import EntryForm from 'components/entry_form';
 import React from 'react';
 
 export default React.createClass({

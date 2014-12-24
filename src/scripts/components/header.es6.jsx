@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default React.createClass({
-  render: function() {
+  render: function () {
     return (
       <div className="navbar navbar-default navbar-static-top">
         <div className="container">

@@ -3,7 +3,7 @@
 //= require ./init.js
 
 import React from 'react';
-import Ledger from 'ledger';
+import Ledger from 'components/ledger';
 
 React.render(
   <Ledger />,

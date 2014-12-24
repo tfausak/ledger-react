@@ -1,4 +1,4 @@
-import EntryForm from 'entry_form';
+import EntryForm from 'components/entry_form';
 import React from 'react';
 
 export default React.createClass({
@@ -8,7 +8,8 @@ export default React.createClass({
     id: React.PropTypes.number.isRequired,
     onUpdate: React.PropTypes.func.isRequired,
     onCancel: React.PropTypes.func.isRequired,
-    onDelete: React.PropTypes.func.isRequired
+    onDelete: React.PropTypes.func.isRequired,
+    time: React.PropTypes.instanceOf(Date).isRequired
   },
 
   render: function() {
@@ -20,6 +21,7 @@ export default React.createClass({
         onUpdate={this.props.onUpdate}
         onCancel={this.props.onCancel}
         onDelete={this.props.onDelete}
+        time={this.props.time}
         />
     );
   }

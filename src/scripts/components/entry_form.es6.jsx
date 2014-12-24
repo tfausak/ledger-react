@@ -8,44 +8,13 @@ export default React.createClass({
     onCreate: React.PropTypes.func,
     onUpdate: React.PropTypes.func,
     onCancel: React.PropTypes.func,
-    onDelete: React.PropTypes.func
+    onDelete: React.PropTypes.func,
+    time: React.PropTypes.instanceOf(Date)
   },
 
   render: function() {
     return (
       <form id="entry-form" onSubmit={this.onSubmit}>
-        <div className="form-group">
-          <label>
-            Type
-          </label>
-
-          <div className="radio">
-            <label>
-              <input
-                defaultChecked={!this.props.amount || this.props.amount < 0}
-                name="type"
-                ref="type-credit"
-                type="radio"
-                value="credit"
-                />
-              Credit
-            </label>
-          </div>
-
-          <div className="radio">
-            <label>
-              <input
-                defaultChecked={this.props.amount > 0}
-                name="type"
-                ref="type-debit"
-                type="radio"
-                value="debit"
-                />
-              Debit
-            </label>
-          </div>
-        </div>
-
         <div className="form-group">
           <label htmlFor="amount">
             Amount
@@ -126,8 +95,6 @@ export default React.createClass({
   onSubmit: function(event) {
     event.preventDefault();
 
-    var typeCreditNode = this.refs['type-credit'].getDOMNode();
-    var typeDebitNode = this.refs['type-debit'].getDOMNode();
     var amountNode = this.refs.amount.getDOMNode();
     var amount = amountNode.valueAsNumber;
     var nameNode = this.refs.description.getDOMNode();
@@ -143,10 +110,6 @@ export default React.createClass({
       return;
     }
 
-    if (typeCreditNode.checked) {
-      amount *= -1;
-    }
-
     var entry = {amount: amount, description: description, time: new Date()};
 
     if (this.isEditing()) {
@@ -154,15 +117,12 @@ export default React.createClass({
         amount: entry.amount,
         description: entry.description,
         id: this.props.id,
-        time: entry.time
+        time: this.props.time
       };
       this.props.onUpdate(entry);
     }
     else {
       this.props.onCreate(entry);
-
-      typeCreditNode.checked = true;
-      typeDebitNode.checked = false;
 
       var nodes = document
         .querySelectorAll('#entry-form input, #entry-form button');
@@ -193,7 +153,7 @@ export default React.createClass({
     if (this.props.amount === undefined) {
       return null;
     } else {
-      return Math.abs(this.props.amount).toFixed(2);
+      return this.props.amount.toFixed(2);
     }
   }
 });
