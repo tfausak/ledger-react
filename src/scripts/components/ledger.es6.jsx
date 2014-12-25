@@ -102,13 +102,13 @@ export default React.createClass({
     superagent.post(url, function (_, response) {
       if (response && response.status === 201) {
         var key = response.body.id;
-        window.alert(key);
+        window.alert('Your new key is: ' + key);
         this.setKey(key);
       }
     }.bind(this));
   },
   enterKey: function () {
-    var key = window.prompt('Key', '');
+    var key = window.prompt('Enter your key:', '');
     if (key) { this.setKey(key); }
   },
   setKey: function (key) {

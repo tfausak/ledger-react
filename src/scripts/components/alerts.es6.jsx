@@ -78,7 +78,7 @@ export default React.createClass({
         </a>
         {' or '}
         <a className="alert-link" href="#" onClick={this.props.enterKey}>
-          enter another key
+          enter a different key
         </a>
         .
       </div>
