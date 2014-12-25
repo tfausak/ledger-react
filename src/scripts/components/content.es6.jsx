@@ -20,12 +20,12 @@ export default React.createClass({
             <Balance entries={this.filteredEntries()} />
             <hr />
             <CreateEntryForm onCreate={this.props.onCreateEntry} />
-          </div>
-
-          <div className="col-sm-8">
             <SearchAndFilter
               onSearch={this.handleSearch}
               onFilter={this.handleFilter} />
+          </div>
+
+          <div className="col-sm-8">
             <Entries
               entries={this.sortedEntries()}
               onUpdate={this.props.onUpdateEntry}
