@@ -2,6 +2,10 @@
 
 This package uses [Semantic Versioning][1].
 
+## v0.3.0 (2014-12-25)
+
+- Completely reworked the front end.
+
 ## v0.2.2 (2014-12-13)
 
 - Removed Unicode from startup message.
