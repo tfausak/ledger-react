@@ -7,7 +7,7 @@ export default React.createClass({
 
   render: function() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <input
             className="form-control"
@@ -23,5 +23,8 @@ export default React.createClass({
 
   handleChange: function() {
     this.props.onSearch(this.refs.query.getDOMNode().value);
+  },
+  handleSubmit: function (event) {
+    event.preventDefault();
   }
 });
