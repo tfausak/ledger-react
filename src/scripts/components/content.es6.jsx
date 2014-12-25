@@ -1,9 +1,8 @@
 import Balance from 'components/balance';
 import CreateEntryForm from 'components/create_entry_form';
 import Entries from 'components/entries';
-import Filter from 'components/filter';
 import React from 'react';
-import Search from 'components/search';
+import SearchAndFilter from 'components/search_and_filter';
 
 export default React.createClass({
   propTypes: {
@@ -24,8 +23,9 @@ export default React.createClass({
           </div>
 
           <div className="col-sm-8">
-            <Search onSearch={this.handleSearch} />
-            <Filter onFilter={this.handleFilter} />
+            <SearchAndFilter
+              onSearch={this.handleSearch}
+              onFilter={this.handleFilter} />
             <Entries
               entries={this.sortedEntries()}
               onUpdate={this.props.onUpdateEntry}
